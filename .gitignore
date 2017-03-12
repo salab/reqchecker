@@ -2,5 +2,6 @@
 /bin/
 /build/
 /.gradle/
-/.settings/
 /src/main/resources/wnjpn.db
+/sample/_*.txt
+/output/_*.html
