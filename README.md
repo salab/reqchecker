@@ -8,6 +8,8 @@ A lint tool for checking requirements specification documents
 ## Requirements
 
 - CaboCha (https://taku910.github.io/cabocha/)
+- Japanese Wordnet (http://compling.hss.ntu.edu.sg/wnja/)
+    - Put the database file	(`wnjpn.db`） into `src/main/resouces/`
 
 ## Related Publication
 
