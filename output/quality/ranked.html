@@ -1,0 +1,88 @@
+<HTML>
+<HEAD>
+<link rel=stylesheet type="text/css" href="quality.css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>重要度と安定性のランク付け</TITLE>
+</HEAD>
+<BODY>
+<DIV id="header">
+<BR>
+<H1>重要度と安定性のランク付け</H1>
+<BR>
+</DIV>
+
+<DIV id="menu" class="nav">
+<UL class="nl clearFix">
+  <LI><a href="#explanation">説明</a></LI>
+  <LI><a href="#points">判断のポイント</a></LI>
+  <LI><a href="#sample">例題</a></LI>
+</UL>
+</DIV>
+
+<DIV id="container">
+
+<DIV id="middle">
+<H2 id="explanation">説明</H2>
+<P>
+個々の要求文に重要度や安定性を示す語句があるとき、要求仕様書は重要度と安定性のランク付けがされているといえる。<BR><BR>
+この<B><U>ランク付けが正しいかどうか</U></B>を判断することで、その要求仕様書の重要度と安定性のランク付けが正しくされていることがわかる。<BR><BR>
+<B><U>国文法を逸脱している要求文</U></B>もランク付けの誤りと判断する。
+</P>
+
+<H2 id="points">判断のポイント</H2>
+<P>
+要求文について以下の項目を調べることで妥当性を確かめる。
+
+<DL>
+  <DT class="list">a. 正しくランク付けがされていること</DT>
+    <DD>ランク付けは次の3つで表現される。</DD>
+    <DD><DL>
+      <DT class="list">1. 必須な要求</DT>
+        <DD>「する」「とする」などの表現で終わる。</DD>
+      <DT class="list">2. 推奨を表現する要求</DT>
+        <DD>「することが望ましい」「ほうがよい」などの表現で終わる。</DD>
+      <DT class="list">3. 限度内で許されることを表現する要求</DT>
+        <DD>「してもよい」「差し支えない」などの表現で終わる。</DD>
+    </DL></DD>
+    <DD><a href="#sample_1">例題。</a></DD>
+</DL>
+
+</P>
+<H2 id="sample">例題</H2>
+<P>
+ここではそれぞれのポイントについて例題の要求仕様書<I>「<a href="winary.html">大岡山ワイナリー</a>」</I>を使い問題点の例を示す。ここで解説した問題点が問題点の全てではなく、一部である。
+<DL>
+  <DT id="sample_1" class="list">a. 正しくランク付けがされていること</DT>
+    <DD><DL>
+      <DT class="requirement">[このとき指定されたワインが出荷できれば、それを直ちに出荷し、まだ出荷できなければ<SPAN class="word">予約として扱い</SPAN>、熟成終了後ただちに出荷する。]</DT>
+      <DD>予約できない場合が存在するので、「予約として扱い」というランク1の要求のままにするべきではないのでランク付けの誤りである。</DD>
+    </DL></DD>
+</DL>
+</P>
+</DIV>
+
+<DIV id="side">
+<H3>品質特性一覧</H3>
+<UL type="square">
+  <LI><a href="correctness.html">妥当性</a></LI>
+  <LI><a href="unambiguity.html">非あいまい性</a></LI>
+  <LI><a href="completeness.html">完全性</a></LI>
+  <LI><a href="consistency.html">無矛盾性</a></LI>
+  <LI><a href="ranked.html">重要度と安定性のランク付け</a></LI>
+  <LI><a href="verifiability.html">検証可能性</a></LI>
+  <LI><a href="modifiability.html">変更可能性</a></LI>
+  <LI><a href="traceability.html">追跡可能性</a></LI>
+</UL>
+</DIV>
+
+<DIV id="footer">
+<H3>参考資料</H3>
+<UL type="square">
+  <LI><a href="http://standards.ieee.org/reading/ieee/std_public/description/se/830-1998_desc.html">IEEE Std 830-1998 IEEE Recommended Practice for Software Requirements Specifications -Description</a></LI>
+  <LI>要求工学ワーキンググループ, <a href="http://www.selab.is.ritsumei.ac.jp/~ohnishi/RE/rewg-tr1v2.pdf">要求定義で困ってませんか？要求仕様書の品質に関する研究成果報告</a></LI>
+</UL>
+</DIV>
+</DIV>
+
+</BODY>
+</HTML>

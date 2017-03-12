@@ -1,0 +1,122 @@
+<HTML>
+<HEAD>
+<link rel=stylesheet type="text/css" href="quality.css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+非あいまい性
+</TITLE>
+</HEAD>
+<BODY>
+<DIV id="header">
+<BR>
+<H1>非あいまい性</H1>
+<BR>
+</DIV>
+
+<DIV id="menu" class="nav">
+<UL class="nl clearFix">
+  <LI><a href="#explanation">説明</a></LI>
+  <LI><a href="#points">判断のポイント</a></LI>
+  <LI><a href="#sample">例題</a></LI>
+</UL>
+</DIV>
+
+<DIV id="container">
+
+<DIV id="middle">
+<H2 id="explanation">説明</H2>
+<P>
+要求仕様書中に述べられている<B><U>すべての要求が一意に解釈できる</U></B>場合、要求仕様はあいまいでないといえる。<BR><BR>
+もしある要求が何通りにも解釈できる場合は、その要求仕様はあいまいとなる。<BR><BR>
+</P>
+
+<H2 id="points">判断のポイント</H2>
+<P>
+各要求文について以下の5つの項目を調べることで非あいまい性を確かめる。
+
+<DL>
+  <DT class="list">a. 語句の係り受け関係が複数ある文</DT>
+    <DD>コンピュータで構文解析を行った時に、構文解析木が複数得られるような文。</DD>
+    <DD><a href="#sample_1">例題。</a></DD>
+  <DT class="list">b. 主語や目的語が省略されている文</DT>
+    <DD><a href="#sample_2">例題。</a></DD>
+  <DT class="list">c. 指示語が含まれている文</DT>
+    <DD><a href="#sample_3">例題。</a></DD>
+  <DT class="list">d. 判断基準が曖昧な語句が含まれている文</DT>
+    <DD>読み手によって達成したかの判断が変わるような語句を含む文。</DD>
+    <DD>非機能要求や品質要求の記述によく含まれる。</DD>
+    <DD><a href="#sample_4">例題。</a></DD>
+  <DT class="list">e. 範囲や境界を表す語句が含まれている文</DT>
+    <DD><a href="#sample_5">例題。</a></DD>
+</DL>
+
+</P>
+<H2 id="sample">例題</H2>
+<P>
+ここではそれぞれのポイントについて例題の要求仕様書<I>「<a href="winary.html">大岡山ワイナリー</a>」</I>を使い問題点の例を示す。ここで解説した問題点が問題点の全てではなく、一部である。
+<DL>
+  <DT id="sample_1" class="list">a. 語句の係り受け関係が複数ある文</DT>
+    <DD><DL>
+      <DT class="requirement">[大岡山ワイナリーでは、<SPAN class="modifier">作ったワインの</SPAN><SPAN class="parallel">注文・予約販売</SPAN>を行っている。]</DT>
+        <DD>「作ったワインの」という語句が「注文」と「予約販売」の両方にかかるのか、「注文」だけにかかるのかがあいまいである。</DD>
+	<DD>つまり「予約販売」を行うのは「作ったワイン」に関してだけか作っていないワインも取り扱うのかという違いがある。</DD>
+    </DL></DD>
+  <DT id="sample_2" class="list">b. 主語や目的語が省略されている文</DT>
+    <DD><DL>
+      <DT class="requirement">[大岡山ワイナリーでは、作ったワインの注文・予約販売を行っている。]</DT>
+        <DD>この要求文には<B>主語</B>が省略されている。</DD>
+	<DD>省略された主語は「オーナー」もしくは「システム」などの動作主が入るのではないかと予測されるが、正しいとは限らないのであいまいである。</DD>
+    </DL></DD>
+    <DD><DL>
+      <DT class="requirement">[例えば、熟成開始から２４ヶ月までの間に<SPAN class="word">出荷する</SPAN>場合はクリアンサと呼ぶ。]</DT>
+        <DD>この要求文に含まれる動詞「出荷する」には<B>目的語</B>が省略されている。</DD>
+	<DD>常識的に考えれば省略された目的語は「ワイン」であると予測できるが、正しいとは限らないのであいまいである。</DD>
+    </DL></DD>
+  <DT id"sample_3" class="list">c. 指示語が含まれている文</DT>
+    <DD><DL>
+      <DT class="requirement">[<SPAN class="word">このとき</SPAN>指定されたワインが出荷できれば、<SPAN class="word">それ</SPAN>を直ちに出荷し、出荷できなければ予約として扱い、熟成終了後ただちに出荷する。]</DT>
+        <DD>この要求文には「このとき」と「それ」という指示語が含まれている。</DD>
+	<DD>「このとき」は直前の要求文にある注文をされた状況、「それ」は指定されたワインを指すと考えられるが、正しいとは限らないのであいまいである。</DD>
+    </DL></DD>
+  <DT id="sample_4" class="list">d. 判断基準が曖昧な語句が含まれている文</DT>
+    <DD><DL>
+      <DT class="requirement">[このとき指定されたワインが出荷できれば、それを<SPAN class="word">直ちに</SPAN>出荷し、出荷できなければ予約として扱い、熟成終了後<SPAN class="word">ただちに</SPAN>出荷する。]</DT>
+        <DD>この要求文には「直ちに」と「ただちに」という判断基準があいまいな語句が含まれている。</DD>
+	<DD>「直ちに」と「ただちに」はどの程度の時間範囲を指すのかがあいまいである。</DD>
+    </DL></DD>
+  <DT id="sample_5" class="list">e. 範囲や境界を表す語句が含まれている文</DT>
+    <DD><DL>
+      <DT class="requirement">[例えば、熟成開始から２４ヶ月<SPAN class="word">まで</SPAN>の間に出荷する場合はクリアンサと呼ぶ。]</DT>
+        <DD>この要求文には「まで」という境界を示す語句が含まれている。</DD>
+	<DD>24ヶ月目丁度が含まれるかどうかがあいまいである。</DD>
+    </DL></DD>
+</DL>
+</P>
+</DIV>
+
+<DIV id="side">
+<H3>品質特性一覧</H3>
+<UL type="square">
+  <LI><a href="correctness.html">妥当性</a></LI>
+  <LI><a href="unambiguity.html">非あいまい性</a></LI>
+  <LI><a href="completeness.html">完全性</a></LI>
+  <LI><a href="consistency.html">無矛盾性</a></LI>
+  <LI><a href="ranked.html">重要度と安定性のランク付け</a></LI>
+  <LI><a href="verifiability.html">検証可能性</a></LI>
+  <LI><a href="modifiability.html">変更可能性</a></LI>
+  <LI><a href="traceability.html">追跡可能性</a></LI>
+</UL>
+</DIV>
+
+<DIV id="footer">
+<H3>参考資料</H3>
+<UL type="square">
+  <LI><a href="http://standards.ieee.org/reading/ieee/std_public/description/se/830-1998_desc.html">IEEE Std 830-1998 IEEE Recommended Practice for Software Requirements Specifications -Description</a></LI>
+  <LI>要求工学ワーキンググループ, <a href="http://www.selab.is.ritsumei.ac.jp/~ohnishi/RE/rewg-tr1v2.pdf">要求定義で困ってませんか？要求仕様書の品質に関する研究成果報告</a></LI>
+</UL>
+</DIV>
+
+</DIV>
+
+</BODY>
+</HTML>

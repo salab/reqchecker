@@ -1,0 +1,91 @@
+<HTML>
+<HEAD>
+<link rel=stylesheet type="text/css" href="quality.css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>追跡可能性</TITLE>
+</HEAD>
+<BODY>
+<DIV id="header">
+<BR>
+<H1>追跡可能性</H1>
+<BR>
+</DIV>
+
+<DIV id="menu" class="nav">
+<UL class="nl clearFix">
+  <LI><a href="#explanation">説明</a></LI>
+  <LI><a href="#points">判断のポイント</a></LI>
+  <LI><a href="#sample">例題</a></LI>
+</UL>
+</DIV>
+
+<DIV id="container">
+
+<DIV id="middle">
+<H2 id="explanation">説明</H2>
+<P>
+要求仕様書にある<B><U>各要求が後方、前方の追跡可能性を備えている</U></B>とき、その要求仕様書が追跡可能であるといえる。<BR>
+<DL>
+  <DT class="list">1. 後方追跡可能性</DT>
+    <DD>各要求からすでに作成された文書中の各要求の起源について書かれた箇所を参照できる。</DD>
+  <DT class="list">2. 前方追跡可能性</DT>
+    <DD>各要求が名前と参照番号を有し、要求仕様書を元して作成されたすべての文書から参照できる。</DD>
+</DL>
+</P>
+
+<H2 id="points">判断のポイント</H2>
+<P>
+要求仕様書と含まれる各要求文について以下の3つの項目を調べることで追跡可能性を確かめる。
+
+<DL>
+  <DT class="list">a. 章節番号を付与していること</DT>
+    <DD><a href="#sample_1">例題。</a></DD>
+  <DT class="list">b. 段落ごとに1要求のみが書かれていること。</DT>
+    <DD><a href="#sample_2">例題。</a></DD>
+  <DT class="list">c. 各要求にユニークな番号が振られていること。</DT>
+    <DD><a href="#sample_3">例題。</a></DD>
+</DL>
+
+</P>
+<H2 id="sample">例題</H2>
+<P>
+ここではそれぞれのポイントについて例題の要求仕様書<I>「<a href="winary.html">大岡山ワイナリー</a>」</I>を使い問題点の例を示す。ここで解説した問題点が問題点の全てではなく、一部である。
+<DL>
+  <DT id="sample_1" class="list">a. 章節番号を付与していること</DT>
+    <DD>この要求仕様書に章節番号は存在していない</DD>
+  <DT id="sample_2" class="list">b. 段落ごとに1要求のみが書かれていること</DT>
+    <DD><DL>
+      <DT class="requirement">[このとき指定されたワインが出荷できれば、それを直ちに出荷し、まだ出荷できなければ予約として扱い、熟成終了後ただちに出荷する。]</DT>
+      <DD>「直ちに出荷する」という処理と「予約として扱う」処理の2つが書かれている。</DD>
+    </DL></DD>
+  <DT id="sample_3" class="list">c. 各要求にユニークな番号が振られていること</DT>
+    <DD>全15文のうち14の要求文にユニークな番号が振られていない。</DD>
+</DL>
+</P>
+</DIV>
+
+<DIV id="side">
+<H3>品質特性一覧</H3>
+<UL type="square">
+  <LI><a href="correctness.html">妥当性</a></LI>
+  <LI><a href="unambiguity.html">非あいまい性</a></LI>
+  <LI><a href="completeness.html">完全性</a></LI>
+  <LI><a href="consistency.html">無矛盾性</a></LI>
+  <LI><a href="ranked.html">重要度と安定性のランク付け</a></LI>
+  <LI><a href="verifiability.html">検証可能性</a></LI>
+  <LI><a href="modifiability.html">変更可能性</a></LI>
+  <LI><a href="traceability.html">追跡可能性</a></LI>
+</UL>
+</DIV>
+
+<DIV id="footer">
+<H3>参考資料</H3>
+<UL type="square">
+  <LI><a href="http://standards.ieee.org/reading/ieee/std_public/description/se/830-1998_desc.html">IEEE Std 830-1998 IEEE Recommended Practice for Software Requirements Specifications -Description</a></LI>
+  <LI>要求工学ワーキンググループ, <a href="http://www.selab.is.ritsumei.ac.jp/~ohnishi/RE/rewg-tr1v2.pdf">要求定義で困ってませんか？要求仕様書の品質に関する研究成果報告</a></LI>
+</UL>
+</DIV>
+</DIV>
+
+</BODY>
+</HTML>

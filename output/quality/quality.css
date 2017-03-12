@@ -1,0 +1,182 @@
+H1 {
+   text-align: center;
+/*   color: #ff0000; */
+}
+
+/* B: 全体 */
+body,
+#main dd.bgB abbr {
+   font-size: 14pt;
+   background-color: #fdfdea; /* 全体の背景色 */
+   color: #000000; /* 全体の文字色 */
+   text-align:center;
+}
+
+#container {
+
+   margin-left:auto;
+   margin-right:auto;
+   text-align:left;
+}
+
+/* H: ヘッダ */
+#header,
+#main dd.bgH abbr {
+   background-color: #958d55; /* ヘッダの背景色 */
+   color: #ffffff; /* ヘッダの文字色 */
+}
+
+/* M: メニューバー */
+#menu,
+#main dd.bgM abbr {
+   background-color: #bcb99e; /* メニューバーの背景色 */
+   color: #ffffff; /* メニューバーの文字色 */
+}
+
+.list {
+   font-weight: bold;
+}
+
+.requirement {
+   font: normal bold 100% fantasy;
+   background-color: #CCFFCC;
+}
+
+
+.section {
+   font: bold 100% sans-serif;
+}
+
+.modifier {
+   background-color:#00ffff;
+}
+
+.parallel {
+   background-color:#ff99ff;
+}
+
+.lastParallel {
+   font: bold 100% sans-serif;
+   background-color:#ff6633;
+}
+
+.word {
+   background-color:#99ff99;
+}
+
+
+/* L: 左サイドバー */
+#side,
+#main dd.bgL abbr {
+   padding:0.5%;
+   width:22%;
+   height:auto;
+   float:left;
+   background-color: #e6e4db; /* 左サイドバーの背景色 */
+   color: #000000; /* 左サイドバーの文字色 */
+}
+
+/* C: 中央カラム */
+#middle {
+   width:75%;
+   float:right;
+   background-color: #fdfdea; /* 中央カラムの背景色 */
+   color: #000000; /* 中央カラムの文字色 */
+}
+#main div.section a {
+   color: #0000ff; /* リンクテキストの文字色 */
+}
+
+/* R: 右サイドバー */
+#aside,
+#main dd.bgR abbr {
+   background-color: #e6e4db; /* 右サイドバーの背景色 */
+   color: #000000; /* 右サイドバーの文字色 */
+}
+
+/* F: フッタ */
+#footer,
+#main dd.bgF abbr {
+   width:100%;
+   clear: both;
+   background-color: #bcb99e; /* フッタの背景色 */
+   color: #ffffff; /* フッタの文字色 */
+}
+#footer a {
+   font-weight: bold;
+   color: #ffffff; /* リンクテキストの文字色 */
+}
+
+/* A: アクセント */
+#nav div.accent,
+#aside div.accent,
+#main dd.bgA abbr {
+   background-color: #646046; /* アクセントの背景色 */
+   color: #ffffff; /* アクセントの文字色 */
+}
+
+/* --- ナビゲーションバー --- */
+div.nav {
+   width: 100%; /* ナビゲーションの幅 */
+   background-color: #f9f9f9; /* ナビゲーションの背景色 */
+   border-top: 1px #cccccc solid; /* 上境界線 */
+   border-bottom: 1px #cccccc solid; /* 下境界線 */
+   font-size: 80%;
+}
+
+/* --- メニューエリア --- */
+div.nav ul.nl {
+   width: 600px; /* メニューの幅 */
+   margin: 0 auto; /* センターに配置 */
+   padding: 0;
+   background-color: #ffffff; /* メニューの背景色 */
+   border-right: 1px #cccccc solid; /* メニューの右境界線 */
+   list-style-type: none;
+   text-align: center;
+}
+
+/* --- メニュー項目 --- */
+div.nav ul.nl li {
+   width: 33%; /* 項目の幅 */
+   float: left;
+   font-size: 130%;
+}
+
+/* --- リンク --- */
+div.nav ul.nl li a {
+   display: block;
+   position: relative; /* IE6用 */
+   padding: 8px 2px; /* リンクエリアのパディング（上下、左右） */
+   border-left: 1px #cccccc solid; /* リンクエリアの左境界線 */
+   text-decoration: none; /* テキストの下線（なし） */
+}
+/* --- ポイント時の設定 --- */
+div.nav ul.nl li a:hover {
+   background-color: #f0ffff; /* ポイント時の背景色 */
+   text-decoration: underline; /* テキストの下線（あり） */
+}
+
+/* --- clearfix --- */
+.clearFix:after {
+   content: ".";
+   display: block;
+   height: 0;
+   clear: both;
+   visibility: hidden;
+}
+.clearFix {
+   min-height: 1px;
+}
+
+table {
+   border-collapse: collapse;
+   background-color: #FFCCFF;
+}
+th {
+   border: solid 1px;
+   padding: 0.5em;
+}
+td {
+   border: solid 1px;
+   padding: 0.5em;
+}

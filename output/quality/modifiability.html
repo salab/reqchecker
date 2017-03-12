@@ -1,0 +1,104 @@
+<HTML>
+<HEAD>
+<link rel=stylesheet type="text/css" href="quality.css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>変更可能性</TITLE>
+</HEAD>
+<BODY>
+<DIV id="header">
+<BR>
+<H1>変更可能性</H1>
+<BR>
+</DIV>
+
+<DIV id="menu" class="nav">
+<UL class="nl clearFix">
+  <LI><a href="#explanation">説明</a></LI>
+  <LI><a href="#points">判断のポイント</a></LI>
+  <LI><a href="#sample">例題</a></LI>
+</UL>
+</DIV>
+
+<DIV id="container">
+
+<DIV id="middle">
+<H2 id="explanation">説明</H2>
+<P>
+要求仕様書の構造やスタイルを保持したまま、<B><U>要求を容易に、完全に、矛盾なく変更できる</U></B>場合、その要求仕様書は変更可能であるといえる。<BR><BR>
+</P>
+
+<H2 id="points">判断のポイント</H2>
+<P>
+要求仕様書について以下の4つの項目を調べることで変更可能性を確かめる。
+
+<DL>
+  <DT class="list">a. 目次、索引、クロスリファレンスが付けられていること</DT>
+    <DD><a href="#sample_1">例題。</a></DD>
+  <DT class="list">b. 同じ要求が2箇所以上に現れないこと</DT>
+    <DD><a href="#sample_2">例題。</a></DD>
+  <DT class="list">c. 要求が互いに依存しないこと</DT>
+    <DD><a href="#sample_3">例題。</a></DD>
+  <DT class="list">d. 個々の要求を分離して別々に表現すること</DT>
+    <DD><a href="#sample_4">例題。</a></DD>
+</DL>
+
+</P>
+<H2 id="sample">例題</H2>
+<P>
+ここではそれぞれのポイントについて例題の要求仕様書<I>「<a href="winary.html">大岡山ワイナリー</a>」</I>を使い問題点の例を示す。ここで解説した問題点が問題点の全てではなく、一部である。
+<DL>
+  <DT id="sample_1" class="list">a. 目次、索引、クロスリファレンスが付けられていること</DT>
+    <DD>目次、索引、クロスリファレンスはこの要求仕様書に記述がない。</DD>
+  <DT id="sample_2" class="list">b. 同じ要求が2箇所以上に現れないこと</DT>
+    <DD>次の2つの要求文は同じ内容を記述している。</DD>
+    <DD><DL>
+      <DT class="requirement">[このとき指定されたワインが出荷できれば、それを直ちに出荷し、まだ出荷できなければ予約として扱い、熟成終了後ただちに出荷する。]</DT>
+    </DL></DD>
+    <DD><DL>
+      <DT class="requirement">[予約されたワインは熟成が終わり次第まとめて出荷する。]</DT>
+    </DL></DD>
+  <DT id="sample_3" class="list">c. 要求が互いに依存しないこと</DT>
+    <DD>次の3つの要求文には依存関係がある。</DD>
+    <DD><DL>
+      <DT class="requirement">[ワインのタイプは醸造をしてから何年間熟成させたかによって下表のように決まる。]</DT>
+    </DL></DD>
+    <DD><DL>
+      <DT class="requirement">[例えば、熟成開始から２４ヶ月までの間に出荷する場合はクリアンサと呼ぶ。]</DT>
+    </DL></DD>
+    <DD><DL>
+      <DT class="requirement">[３０ヶ月目に出荷されるものはクリアンサ（２４ヶ月以上３６ヶ月未満）と呼ばれる。]</DT>
+    </DL></DD>
+  <DT id="sample_4" class="list">d. 個々の要求を分離して別々に表現すること</DT>
+    <DD><DL>
+      <DT class="requirement">[このとき指定されたワインが出荷できれば、それを直ちに出荷し、まだ出荷できなければ予約として扱い、熟成終了後ただちに出荷する。]</DT>
+      <DD>「直ちに出荷する」という処理と「予約として扱う」処理の2つが書かれている。</DD>
+    </DL></DD>
+</DL>
+</P>
+</DIV>
+
+<DIV id="side">
+<H3>品質特性一覧</H3>
+<UL type="square">
+  <LI><a href="correctness.html">妥当性</a></LI>
+  <LI><a href="unambiguity.html">非あいまい性</a></LI>
+  <LI><a href="completeness.html">完全性</a></LI>
+  <LI><a href="consistency.html">無矛盾性</a></LI>
+  <LI><a href="ranked.html">重要度と安定性のランク付け</a></LI>
+  <LI><a href="verifiability.html">検証可能性</a></LI>
+  <LI><a href="modifiability.html">変更可能性</a></LI>
+  <LI><a href="traceability.html">追跡可能性</a></LI>
+</UL>
+</DIV>
+
+<DIV id="footer">
+<H3>参考資料</H3>
+<UL type="square">
+  <LI><a href="http://standards.ieee.org/reading/ieee/std_public/description/se/830-1998_desc.html">IEEE Std 830-1998 IEEE Recommended Practice for Software Requirements Specifications -Description</a></LI>
+  <LI>要求工学ワーキンググループ, <a href="http://www.selab.is.ritsumei.ac.jp/~ohnishi/RE/rewg-tr1v2.pdf">要求定義で困ってませんか？要求仕様書の品質に関する研究成果報告</a></LI>
+</UL>
+</DIV>
+</DIV>
+
+</BODY>
+</HTML>

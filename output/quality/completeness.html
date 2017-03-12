@@ -1,0 +1,89 @@
+<HTML>
+<HEAD>
+<link rel=stylesheet type="text/css" href="quality.css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>完全性</TITLE>
+</HEAD>
+<BODY>
+<DIV id="header">
+<BR>
+<H1>完全性</H1>
+<BR>
+</DIV>
+
+<DIV id="menu" class="nav">
+<UL class="nl clearFix">
+  <LI><a href="#explanation">説明</a></LI>
+  <LI><a href="#points">判断のポイント</a></LI>
+  <LI><a href="#sample">例題</a></LI>
+</UL>
+</DIV>
+
+<DIV id="container">
+
+<DIV id="middle">
+<H2 id="explanation">説明</H2>
+<P>
+要求仕様書中に<B><U>顧客やユーザーの真のニーズが漏れなく書かれていれば</U></B>、この要求仕様書は完全であるといえる。<BR><BR>
+もし要求仕様書に抜けがあるならその要求仕様書は完全でないとなる。<BR><BR>
+</P>
+
+<H2 id="points">判断のポイント</H2>
+<P>
+要求仕様書について以下の3つの項目を調べることで完全性を確かめる。
+
+<DL>
+  <DT class="list">a. 機能、性能、設計制約、属性、外部インターフェースに関する要求が全て記載されている。</DT>
+    <DD><a href="#sample_1">例題。</a></DD>
+  <DT class="list">b. 可能な入力データ全てに対しての応答が記載されている。</DT>
+    <DD><a href="#sample_2">例題。</a></DD>
+  <DT class="list">c. 図や表に対するラベルと参照、用語の定義と単位の定義が記載されている。</DT>
+    <DD>ラベルや定義がない場合、解釈にあいまい性が生じることがある。</DD>
+    <DD><a href="#sample_3">例題。</a></DD>
+</DL>
+
+</P>
+<H2 id="sample">例題</H2>
+<P>
+ここではそれぞれのポイントについて例題の要求仕様書<I>「<a href="winary.html">大岡山ワイナリー</a>」</I>を使い問題点の例を示す。ここで解説した問題点が問題点の全てではなく、一部である。
+<DL>
+  <DT id="sample_1" class="list">a. 機能、性能、設計制約、属性、外部インターフェースに関する要求が全て記載されている。</DT>
+    <DD><STRONG>設計制約、属性、外部インターフェース</STRONG>に関する要求はこの要求仕様書に存在しない。</DD>
+  <DT id="sample_2" class="list">b. 可能な入力データ全てに対しての応答が記載されている。</DT>
+    <DD><DL>
+      <DT class="requirement">[お客は、注文する際には、タイプと何年もの、本数を指定して注文する。]</DT>
+        <DD>不適当な入力に対する応答が記述されていない。</DD>
+	<DD>例えば、定義されていないタイプや負の数などに対する応答である。</DD>
+    </DL></DD>
+  <DT id"sample_3" class="list">c. 図や表に対するラベルと参照、用語の定義と単位の定義が記載されている。</DT>
+    <DD>表にラベルがない。</DD>
+    <DD>「下表」で参照しているが、表は1つなので示しうる表にあいまい性はない。
+</DL>
+</P>
+</DIV>
+
+<DIV id="side">
+<H3>品質特性一覧</H3>
+<UL type="square">
+  <LI><a href="correctness.html">妥当性</a></LI>
+  <LI><a href="unambiguity.html">非あいまい性</a></LI>
+  <LI><a href="completeness.html">完全性</a></LI>
+  <LI><a href="consistency.html">無矛盾性</a></LI>
+  <LI><a href="ranked.html">重要度と安定性のランク付け</a></LI>
+  <LI><a href="verifiability.html">検証可能性</a></LI>
+  <LI><a href="modifiability.html">変更可能性</a></LI>
+  <LI><a href="traceability.html">追跡可能性</a></LI>
+</UL>
+</DIV>
+
+<DIV id="footer">
+<H3>参考資料</H3>
+<UL type="square">
+  <LI><a href="http://standards.ieee.org/reading/ieee/std_public/description/se/830-1998_desc.html">IEEE Std 830-1998 IEEE Recommended Practice for Software Requirements Specifications -Description</a></LI>
+  <LI>要求工学ワーキンググループ, <a href="http://www.selab.is.ritsumei.ac.jp/~ohnishi/RE/rewg-tr1v2.pdf">要求定義で困ってませんか？要求仕様書の品質に関する研究成果報告</a></LI>
+</UL>
+</DIV>
+</DIV>
+
+</BODY>
+</HTML>

@@ -1,0 +1,77 @@
+<HTML>
+<HEAD>
+<link rel=stylesheet type="text/css" href="quality.css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>妥当性</TITLE>
+</HEAD>
+<BODY>
+<DIV id="header">
+<BR>
+<H1>妥当性</H1>
+<BR>
+</DIV>
+
+<DIV id="menu" class="nav">
+<UL class="nl clearFix">
+  <LI><a href="#explanation">説明</a></LI>
+  <LI><a href="#points">判断のポイント</a></LI>
+  <LI><a href="#sample">例題</a></LI>
+</UL>
+</DIV>
+
+<DIV id="container">
+
+<DIV id="middle">
+<H2 id="explanation">説明</H2>
+<P>
+要求仕様書に含まれる要求文が<B><U>ソフトウェアが真に満たすべき文である</U></B>とき、その要求文が妥当であるといえる。<BR><BR>
+</P>
+
+<H2 id="points">判断のポイント</H2>
+<P>
+要求文について以下の項目を調べることで妥当性を確かめる。
+
+<DL>
+  <DT class="list">a. 正しくソフトウェアが真に満たすべき要求であること</DT>
+    <DD><a href="#sample_1">例題。</a></DD>
+</DL>
+
+</P>
+<H2 id="sample">例題</H2>
+<P>
+ここではそれぞれのポイントについて例題の要求仕様書<I>「<a href="winary.html">大岡山ワイナリー</a>」</I>を使い問題点の例を示す。ここで解説した問題点が問題点の全てではなく、一部である。
+<DL>
+  <DT id="sample_1" class="list">a. 正しくソフトウェアが真に満たすべき要求であること</DT>
+    <DD><DL>
+      <DT class="requirement">[このとき指定されたワインが出荷できれば、それを直ちに出荷し、まだ出荷できなければ予約として扱い、熟成終了後ただちに出荷する。]</DT>
+      <DD>指定されたワインの在庫がない場合は予約しても絶対に出荷できないので予約にするべきではない。</DD>
+    </DL></DD>
+</DL>
+</P>
+</DIV>
+
+<DIV id="side">
+<H3>品質特性一覧</H3>
+<UL type="square">
+  <LI><a href="correctness.html">妥当性</a></LI>
+  <LI><a href="unambiguity.html">非あいまい性</a></LI>
+  <LI><a href="completeness.html">完全性</a></LI>
+  <LI><a href="consistency.html">無矛盾性</a></LI>
+  <LI><a href="ranked.html">重要度と安定性のランク付け</a></LI>
+  <LI><a href="verifiability.html">検証可能性</a></LI>
+  <LI><a href="modifiability.html">変更可能性</a></LI>
+  <LI><a href="traceability.html">追跡可能性</a></LI>
+</UL>
+</DIV>
+
+<DIV id="footer">
+<H3>参考資料</H3>
+<UL type="square">
+  <LI><a href="http://standards.ieee.org/reading/ieee/std_public/description/se/830-1998_desc.html">IEEE Std 830-1998 IEEE Recommended Practice for Software Requirements Specifications -Description</a></LI>
+  <LI>要求工学ワーキンググループ, <a href="http://www.selab.is.ritsumei.ac.jp/~ohnishi/RE/rewg-tr1v2.pdf">要求定義で困ってませんか？要求仕様書の品質に関する研究成果報告</a></LI>
+</UL>
+</DIV>
+</DIV>
+
+</BODY>
+</HTML>
