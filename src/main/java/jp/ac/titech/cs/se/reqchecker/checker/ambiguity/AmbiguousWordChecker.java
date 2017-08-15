@@ -31,10 +31,10 @@ public class AmbiguousWordChecker extends AbstractSentenceChecker {
     public boolean check() {
         for (final Phrase phrase : sentence.getPhrases()) {
             for (final Word w : phrase.getWords()) {
-                final Set<String> synonym = JawjawUtils.getSynonyms(w.getLemma(), "jpn");
+                final Set<String> synonym = JawjawUtils.getSynonyms(w.getNormalized(), "jpn");
                 synonym.retainAll(AMBIGUOUS_WORDS);
                 if (!synonym.isEmpty()) {
-                    result.add(w.getLemma());
+                    result.add(w.getNormalized());
                 }
             }
         }
@@ -48,7 +48,7 @@ public class AmbiguousWordChecker extends AbstractSentenceChecker {
         final StringBuilder sb = new StringBuilder("-[");
         for (final Phrase phrase : sentence.getPhrases()) {
             for (final Word word : phrase.getWords()) {
-                if (result.contains(word.getLemma())) {
+                if (result.contains(word.getNormalized())) {
                     sb.append("<SPAN class=\"word\">").append(word).append("</SPAN>");
                 } else {
                     sb.append(word);

@@ -254,6 +254,11 @@ public class Word {
         return extra.contains("ORGANIZATION");
     }
 
+    public String getNormalized() {
+        final String lemma = getLemma();
+        return "*".equals(lemma) ? original : lemma;
+    }
+
     @Override
     public String toString() {
         return original;

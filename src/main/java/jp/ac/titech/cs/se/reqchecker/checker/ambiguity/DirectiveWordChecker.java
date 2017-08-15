@@ -30,8 +30,8 @@ public class DirectiveWordChecker extends AbstractSentenceChecker {
     public boolean check() {
         for (final Phrase phrase : sentence.getPhrases()) {
             for (final Word w : phrase.getWords()) {
-                if (DIRECTIVE_WORDS.contains(w.getLemma())) {
-                    result.add(w.getLemma());
+                if (DIRECTIVE_WORDS.contains(w.getNormalized())) {
+                    result.add(w.getNormalized());
                 }
             }
         }
@@ -45,7 +45,7 @@ public class DirectiveWordChecker extends AbstractSentenceChecker {
         final StringBuilder sb = new StringBuilder("-[");
         for (final Phrase phrase : sentence.getPhrases()) {
             for (final Word word : phrase.getWords()) {
-                if (result.contains(word.getLemma())) {
+                if (result.contains(word.getNormalized())) {
                     sb.append("<SPAN class=\"word\">").append(word).append("</SPAN>");
                 } else {
                     sb.append(word);

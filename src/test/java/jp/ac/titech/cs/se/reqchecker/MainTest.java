@@ -1,13 +1,14 @@
 package jp.ac.titech.cs.se.reqchecker;
 
-import org.junit.Test;
-
-import com.google.common.io.PatternFilenameFilter;
-
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.contentOf;
 
 import java.io.File;
 import java.io.IOException;
+
+import org.junit.Test;
+
+import com.google.common.io.PatternFilenameFilter;
 
 public class MainTest {
 
@@ -22,7 +23,7 @@ public class MainTest {
         Main.execute(filename, CABOCHA_URL, filenameExpected);
     }
 
-    @Test
+    // @Test
     public void testHtml() {
         for (final String f : getSampleFiles()) {
             final String input = "sample/" + f;
@@ -30,7 +31,33 @@ public class MainTest {
             check(input, output);
         }
     }
-    
+
+    @Test
+    public void testReserve() {
+        checkOne("reserve");
+    }
+
+    @Test
+    public void testWinery() {
+        checkOne("winery");
+    }
+
+    @Test
+    public void testAirline() {
+        checkOne("airline");
+    }
+
+    @Test
+    public void testTextFormatter() {
+        checkOne("textformatter");
+    }
+
+    private void checkOne(final String f) {
+        final String input = "sample/" + f + ".txt";
+        final String output = "output/" + f + ".html";
+        check(input, output);
+    }
+
     private String[] getSampleFiles() {
         return new File("sample").list(new PatternFilenameFilter(".*\\.txt"));
     }

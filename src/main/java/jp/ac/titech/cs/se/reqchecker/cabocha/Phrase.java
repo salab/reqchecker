@@ -17,6 +17,7 @@ public class Phrase {
     /**
      * Raw string representing this phrase obtained from cabocha.
      */
+    @Getter
     protected String raw;
 
     /**
@@ -96,16 +97,17 @@ public class Phrase {
         case "名詞":
         case "接頭詞":
             if (size == 1) {
-                return beg.getLemma();
+                return beg.getNormalized();
             } else {
                 int i = 1;
-                while (i < size - 1 && words.get(i).isPosOf("名詞"))
+                while (i < size - 1 && words.get(i).isPosOf("名詞")) {
                     i++;
-                return words.get(i - 1).getLemma();
+                }
+                return words.get(i - 1).getNormalized();
             }
         case "動詞":
             if (size == 1) {
-                return beg.getLemma();
+                return beg.getNormalized();
             } else {
                 final StringBuilder sb = new StringBuilder();
                 int i = 0;
@@ -113,7 +115,7 @@ public class Phrase {
                 do {
                     final Word w = words.get(i);
                     if (w.getConjugationForm().equals("連用形") || w.getConjugationForm().equals("連用タ接続") || w.getConjugationForm().equals("仮定形") || w.getConjugationForm().equals("未然形")) {
-                        sb.append(w.getLemma());
+                        sb.append(w.getNormalized());
                     } else if (!w.isDetailedPosOf("接尾")) {
                         sb.append(w);
                     }
@@ -122,7 +124,7 @@ public class Phrase {
                     final Word w1 = words.get(i);
                     pos = w1.getPos();
                     if (i == size - 1 && pos.equals("動詞")) {
-                        sb.append(w1.getLemma());
+                        sb.append(w1.getNormalized());
                     }
                 } while (pos.equals("動詞") && i < size - 1);
                 return sb.toString();
@@ -201,7 +203,7 @@ public class Phrase {
                 while (w.isPosOf("名詞")) {
                     if (!afterDot && w.equals(Word.DOT)) {
                         afterDot = true;
-                    } else if (afterDot && (w.isDetailedPosOf("数", "固有名詞"))) {
+                    } else if (afterDot && w.isDetailedPosOf("数", "固有名詞")) {
                         afterDot = false;
                     } else {
                         break;
@@ -377,7 +379,7 @@ public class Phrase {
         final Set<String> result = new HashSet<>();
         for (final Word w : words) {
             if (!w.isPosOf("助詞", "助動詞", "記号", "接続詞")) {
-                result.add(w.getLemma());
+                result.add(w.getNormalized());
             }
         }
         return result;

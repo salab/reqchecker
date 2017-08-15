@@ -34,13 +34,12 @@ public class DefinitionExtractor {
         for (final Phrase phrase : sentence.getPhrases()) {
             if (definingInstance != null) {
                 if (phrase.contains(Word.DE_AUXILIARY) && phrase.contains(Word.ARU)) {
-                    if (phrase.getFirst().isDetailedPosOf("形容動詞語幹")) {
-                        log.debug("Def or not GA DEARU match");
-                        definitions.add(new Definition(sentence, definingInstance, null, phrase));
-                        definingInstance = null;
-                    }
+                    final Definition d = new Definition(sentence, definingInstance, phrase);
+                    log.debug("Definition found: {}", d);
+                    definitions.add(d);
+                    definingInstance = null;
                 }
-            } else if (phrase.contains(Word.GA)) {
+            } else if (phrase.contains(Word.GA) || (phrase.contains(Word.HA) && !phrase.contains(Word.TO_CASE))) {
                 definingInstance = phrase;
             }
         }
@@ -51,8 +50,9 @@ public class DefinitionExtractor {
         for (final Phrase phrase : sentence.getPhrases()) {
             if (definingInstance != null) {
                 if (phrase.contains(Word.WO) && phrase.getForwardPhrase().contains(Word.SASU)) {
-                    log.debug("Def TOHA WOSASU match");
-                    definitions.add(new Definition(sentence, definingInstance, phrase, findModifier(definingInstance)));
+                    final Definition d = new Definition(sentence, definingInstance, phrase);
+                    log.debug("Definition found: {}", d);
+                    definitions.add(d);
                     definingInstance = null;
                 }
             } else if (phrase.contains(Word.TO_CASE) && phrase.contains(Word.HA)) {
@@ -66,8 +66,9 @@ public class DefinitionExtractor {
         for (final Phrase phrase : sentence.getPhrases()) {
             if (definingInstance != null) {
                 if (phrase.contains(Word.DE_AUXILIARY) && phrase.contains(Word.ARU)) {
-                    log.debug("Def TOHA DEARU match");
-                    definitions.add(new Definition(sentence, definingInstance, phrase, findModifier(definingInstance)));
+                    final Definition d = new Definition(sentence, definingInstance, phrase);
+                    log.debug("Definition found: {}", d);
+                    definitions.add(d);
                     definingInstance = null;
                 }
             } else if (phrase.contains(Word.TO_CASE) && phrase.contains(Word.HA)) {
@@ -88,10 +89,11 @@ public class DefinitionExtractor {
                 }
                 if (isTO_kaku(phrase.getLast())) {
                     final String verb = forward.getCriticalWord();
-                    log.debug(verb);
+                    log.trace(verb);
                     if (verb.equals("する") || verb.equals("呼ぶ")) {
-                        log.debug("Def HA TOSURU match");
-                        definitions.add(new Definition(sentence, description, phrase, findModifier(description)));
+                        final Definition d = new Definition(sentence, phrase, description);
+                        log.debug("Definition found: {}", d);
+                        definitions.add(d);
                         description = null;
                     }
                 }

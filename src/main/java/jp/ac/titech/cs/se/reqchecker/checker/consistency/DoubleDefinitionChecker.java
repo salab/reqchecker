@@ -11,8 +11,11 @@ import jp.ac.titech.cs.se.reqchecker.checker.AbstractDocumentChecker;
 import jp.ac.titech.cs.se.reqchecker.model.Chapter;
 import jp.ac.titech.cs.se.reqchecker.model.Definition;
 import jp.ac.titech.cs.se.reqchecker.model.Document;
+import jp.ac.titech.cs.se.reqchecker.model.Requirement;
 import jp.ac.titech.cs.se.reqchecker.util.AllPairs;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class DoubleDefinitionChecker extends AbstractDocumentChecker {
 
     private final List<Pair<Definition, Definition>> result = new ArrayList<>();
@@ -49,12 +52,9 @@ public class DoubleDefinitionChecker extends AbstractDocumentChecker {
             final Definition def2 = p.getRight();
             if (def1.getDefiningInstance() == null || def2.getDefiningInstance() == null) {
                 continue;
-            } else if (def1.getModifier() == null || def2.getModifier() == null) {
-                if (def1.matchesSubject(def2)) {
-                    result.add(p);
-                }
             } else {
-                if (def1.matchesSubject(def2) && def1.matchesModifier(def2)) {
+                if (def1.matchesSubject(def2)) {
+                    log.debug("Match definitions: {} - {}", def1.getDefiningInstanceCritical(), def2.getDefiningInstanceCritical());
                     result.add(p);
                 }
             }
