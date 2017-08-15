@@ -9,7 +9,7 @@ public class Definition {
     private final Sentence sentence;
 
     @Getter
-    private final Phrase subject;
+    private final Phrase definingInstance;
 
     @Getter
     private final Phrase object;
@@ -17,9 +17,9 @@ public class Definition {
     @Getter
     private final Phrase modifier;
 
-    public Definition(final Sentence sentence, final Phrase subject, final Phrase object, final Phrase modifier) {
+    public Definition(final Sentence sentence, final Phrase definingInstance, final Phrase object, final Phrase modifier) {
         this.sentence = sentence;
-        this.subject = subject;
+        this.definingInstance = definingInstance;
         this.object = object;
         this.modifier = modifier;
     }
@@ -29,7 +29,7 @@ public class Definition {
     }
 
     public boolean matchesSubject(final Definition other) {
-        return getSubjectCritical().equals(other.getSubjectCritical());
+        return getDefiningInstanceCritical().equals(other.getDefiningInstanceCritical());
     }
 
     public boolean matchesModifier(final Definition other) {
@@ -44,8 +44,8 @@ public class Definition {
         return object == null ? "" : object.getCriticalWord();
     }
 
-    public String getSubjectCritical() {
-        return subject == null ? "" : subject.getCriticalWord();
+    public String getDefiningInstanceCritical() {
+        return definingInstance == null ? "" : definingInstance.getCriticalWord();
     }
 
     public String toHTML() {

@@ -30,48 +30,48 @@ public class DefinitionExtractor {
     }
 
     private void search_GA_DEARU() {
-        Phrase subject = null;
+        Phrase definingInstance = null;
         for (final Phrase phrase : sentence.getPhrases()) {
-            if (subject != null) {
+            if (definingInstance != null) {
                 if (phrase.contains(Word.DE_AUXILIARY) && phrase.contains(Word.ARU)) {
                     if (phrase.getFirst().isDetailedPosOf("形容動詞語幹")) {
                         log.debug("Def or not GA DEARU match");
-                        definitions.add(new Definition(sentence, subject, null, phrase));
-                        subject = null;
+                        definitions.add(new Definition(sentence, definingInstance, null, phrase));
+                        definingInstance = null;
                     }
                 }
             } else if (phrase.contains(Word.GA)) {
-                subject = phrase;
+                definingInstance = phrase;
             }
         }
     }
 
     private void search_TOHA_WOSASU() {
-        Phrase subject = null;
+        Phrase definingInstance = null;
         for (final Phrase phrase : sentence.getPhrases()) {
-            if (subject != null) {
+            if (definingInstance != null) {
                 if (phrase.contains(Word.WO) && phrase.getForwardPhrase().contains(Word.SASU)) {
                     log.debug("Def TOHA WOSASU match");
-                    definitions.add(new Definition(sentence, subject, phrase, findModifier(subject)));
-                    subject = null;
+                    definitions.add(new Definition(sentence, definingInstance, phrase, findModifier(definingInstance)));
+                    definingInstance = null;
                 }
             } else if (phrase.contains(Word.TO_CASE) && phrase.contains(Word.HA)) {
-                subject = phrase;
+                definingInstance = phrase;
             }
         }
     }
 
     private void search_TOHA_DEARU() {
-        Phrase subject = null;
+        Phrase definingInstance = null;
         for (final Phrase phrase : sentence.getPhrases()) {
-            if (subject != null) {
+            if (definingInstance != null) {
                 if (phrase.contains(Word.DE_AUXILIARY) && phrase.contains(Word.ARU)) {
                     log.debug("Def TOHA DEARU match");
-                    definitions.add(new Definition(sentence, subject, phrase, findModifier(subject)));
-                    subject = null;
+                    definitions.add(new Definition(sentence, definingInstance, phrase, findModifier(definingInstance)));
+                    definingInstance = null;
                 }
             } else if (phrase.contains(Word.TO_CASE) && phrase.contains(Word.HA)) {
-                subject = phrase;
+                definingInstance = phrase;
             }
         }
     }

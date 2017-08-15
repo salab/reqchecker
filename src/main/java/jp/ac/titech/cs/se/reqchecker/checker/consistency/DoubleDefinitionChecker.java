@@ -47,7 +47,7 @@ public class DoubleDefinitionChecker extends AbstractDocumentChecker {
         for (final Pair<Definition, Definition> p : AllPairs.of(definitions)) {
             final Definition def1 = p.getLeft();
             final Definition def2 = p.getRight();
-            if (def1.getSubject() == null || def2.getSubject() == null) {
+            if (def1.getDefiningInstance() == null || def2.getDefiningInstance() == null) {
                 continue;
             } else if (def1.getModifier() == null || def2.getModifier() == null) {
                 if (def1.matchesSubject(def2)) {
