@@ -12,7 +12,7 @@ public class Definition {
     private final Phrase definingInstance;
 
     @Getter
-    private final Phrase object;
+    private final Phrase description;
 
     @Getter
     private final Phrase modifier;
@@ -20,7 +20,7 @@ public class Definition {
     public Definition(final Sentence sentence, final Phrase definingInstance, final Phrase object, final Phrase modifier) {
         this.sentence = sentence;
         this.definingInstance = definingInstance;
-        this.object = object;
+        this.description = description;
         this.modifier = modifier;
     }
 
@@ -40,8 +40,8 @@ public class Definition {
         return modifier == null ? "" : modifier.getCriticalWord();
     }
 
-    public String getObjectCritical() {
-        return object == null ? "" : object.getCriticalWord();
+    public String getDescriptionCritical() {
+        return description == null ? "" : description.getCriticalWord();
     }
 
     public String getDefiningInstanceCritical() {

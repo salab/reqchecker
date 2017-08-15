@@ -79,9 +79,9 @@ public class DefinitionExtractor {
     private void search_HA_TOSURU() {
         // A は B とする
         // A は B と呼ぶ
-        Phrase subject = null;
+        Phrase description = null;
         for (final Phrase phrase : sentence.getPhrases()) {
-            if (subject != null) {
+            if (description != null) {
                 final Phrase forward = phrase.getForwardPhrase();
                 if (forward == null) {
                     break;
@@ -91,12 +91,12 @@ public class DefinitionExtractor {
                     log.debug(critical);
                     if (critical.equals("する") || critical.equals("呼ぶ")) {
                         log.debug("Def HA TOSURU match");
-                        definitions.add(new Definition(sentence, subject, phrase, findModifier(subject)));
-                        subject = null;
+                        definitions.add(new Definition(sentence, description, phrase, findModifier(description)));
+                        description = null;
                     }
                 }
             } else if (phrase.contains(Word.HA)) {
-                subject = phrase;
+                description = phrase;
             }
         }
     }
