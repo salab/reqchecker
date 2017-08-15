@@ -11,7 +11,7 @@ public class Word {
     /**
      * Binding particle "は".
      */
-    public static final Word HA = new Word("は", "助詞,係助詞,*,*,*,*,は,ハ,ハ", "O");
+    public static final Word HA = new Word("は", "助詞,係助詞,*,*,*,*,は,ハ,ワ", "O");
 
     /**
      * Binding particle "も".
@@ -51,7 +51,7 @@ public class Word {
     /**
      * Case-making particle "へ".
      */
-    public static final Word HE = new Word("へ", "助詞,格助詞,一般,*,*,*,へ,ヘ,ヘ", "O");
+    public static final Word HE = new Word("へ", "助詞,格助詞,一般,*,*,*,へ,ヘ,エ", "O");
 
     /**
      * Case-making particle "から".
