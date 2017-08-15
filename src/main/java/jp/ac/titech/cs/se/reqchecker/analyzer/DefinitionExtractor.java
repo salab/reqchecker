@@ -87,9 +87,9 @@ public class DefinitionExtractor {
                     break;
                 }
                 if (isTO_kaku(phrase.getLast())) {
-                    final String critical = forward.getCriticalWord();
-                    log.debug(critical);
-                    if (critical.equals("する") || critical.equals("呼ぶ")) {
+                    final String verb = forward.getCriticalWord();
+                    log.debug(verb);
+                    if (verb.equals("する") || verb.equals("呼ぶ")) {
                         log.debug("Def HA TOSURU match");
                         definitions.add(new Definition(sentence, description, phrase, findModifier(description)));
                         description = null;
