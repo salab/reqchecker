@@ -34,9 +34,7 @@ public class SimilarRequirementFinder extends AbstractChapterChecker {
             }
             final int similarity = similarity(req1, req2);
             if (similarity > 50) {
-                log.debug("similarity = " + similarity);
-                log.debug("[" + req1.getRawSentence() + "]");
-                log.debug("[" + req2.getRawSentence() + "]");
+                log.debug("similarity = {} ([{}], [{}])", similarity, req1.getRawSentence(), req2.getRawSentence());
                 result.add(p);
             }
         }

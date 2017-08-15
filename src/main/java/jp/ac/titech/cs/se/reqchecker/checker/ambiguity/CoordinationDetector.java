@@ -62,19 +62,19 @@ public class CoordinationDetector extends AbstractSentenceChecker {
         if (!phrase.contains(Word.OYOBI)) {
             return;
         }
-        log.debug("1st round passed");
+        log.trace("1st round passed");
         final String pos = phrase.getLastCriticalWord().getPos();
 
         final Phrase forward = phrase.getForwardPhrase();
-        log.debug(forward.getLast().getDetailedPos() + forward.getLastCriticalWord().getPos());
+        log.trace(forward.getLast().getDetailedPos() + forward.getLastCriticalWord().getPos());
         if (!(forward.getLast().isDetailedPosOf("読点") && forward.getLastCriticalWord().isPosOf(pos))) {
             return;
         }
-        log.debug("2nd round passed");
+        log.trace("2nd round passed");
 
         final Phrase forward2 = forward.getForwardPhrase();
         if (forward2.getLast().isDetailedPosOf("格助詞") && forward2.getLastCriticalWord().isPosOf(pos)) {
-            log.debug("3rd round passed");
+            log.trace("3rd round passed");
             result.add(new Coordination.TypeB(sentence, phrase, forward, forward2));
         }
     }
@@ -86,7 +86,7 @@ public class CoordinationDetector extends AbstractSentenceChecker {
         if (!isModifier(phrase)) {
             return;
         }
-        log.debug("1st round passed");
+        log.trace("1st round passed");
 
         final Phrase forward = phrase.getForwardPhrase();
         if (forward == null) {
@@ -94,7 +94,7 @@ public class CoordinationDetector extends AbstractSentenceChecker {
         }
         if (!(forward.contains(Word.TO_PARALLEL) && forward.isNoun())) {
             // 第二段階突破 並立助詞 "と"の場合
-            log.debug("2nd round passed");
+            log.trace("2nd round passed");
             final Phrase forward2 = forward.getForwardPhrase();
             if (forward2 == null) {
                 return;
@@ -103,31 +103,31 @@ public class CoordinationDetector extends AbstractSentenceChecker {
             if (!(forward2.contains(Word.WO) && forward2.isNoun())) {
                 return;
             }
-            log.debug("3rd round passed");
+            log.trace("3rd round passed");
 
             final Phrase adverb = Utils.last(forward2.getBackwardPhrases());
             if (!adverb.toString().equals(forward.toString())) {
                 if (!isModifier(adverb)) {
                     // 第四段階突破
-                    log.debug("4th round passed");
+                    log.trace("4th round passed");
                     result.add(new Coordination.TypeA(sentence, phrase, forward, forward2));
                 }
             }
         } else if (forward.contains(Word.OYOBI) && forward.isNoun()) {
             // 第二段階突破 接続詞 "および"の場合
-            log.debug("2nd round passed");
+            log.trace("2nd round passed");
             final Phrase parallel = Utils.last(forward.getForwardPhrase().getBackwardPhrases());
             if (parallel == null) {
                 return;
             }
             if (parallel.contains(Word.WO) && parallel.isNoun()) {
                 // 第三段階突破
-                log.debug("3rd round passed");
+                log.trace("3rd round passed");
                 final List<Phrase> tempTemp = parallel.getBackwardPhrases();
                 if (!tempTemp.isEmpty() && isModifier(Utils.last(tempTemp))) {
                     return;
                 }
-                log.debug("4th round passed");
+                log.trace("4th round passed");
                 result.add(new Coordination.TypeA(sentence, phrase, forward, parallel));
             }
         }
@@ -142,13 +142,13 @@ public class CoordinationDetector extends AbstractSentenceChecker {
         if (!isModifier(phrase)) {
             return;
         }
-        log.debug("1st round passed");
+        log.trace("1st round passed");
 
         final Phrase forward = phrase.getForwardPhrase();
         if (forward == null || !forward.containsAnyOf(PARALLEL_SYMBOLS)) {
             return;
         }
-        log.debug("2nd round passed");
+        log.trace("2nd round passed");
 
         // 3rd round (C)
         if (forward.getLast().getDetailedPos().equals("格助詞")) {
@@ -163,7 +163,7 @@ public class CoordinationDetector extends AbstractSentenceChecker {
         if (!forward2.contains(Word.WO) || !forward2.isNoun()) {
             return;
         }
-        log.debug("3rd round passed");
+        log.trace("3rd round passed");
 
         final Phrase adverb = Utils.last(forward2.getBackwardPhrases());
         if (adverb.toString().equals(forward.toString())) {
@@ -173,7 +173,7 @@ public class CoordinationDetector extends AbstractSentenceChecker {
             return;
         }
         result.add(new Coordination.TypeA(sentence, phrase, forward, forward2));
-        log.debug("4th round passed");
+        log.trace("4th round passed");
     }
 
     protected boolean isModifier(final Phrase adverb) {
