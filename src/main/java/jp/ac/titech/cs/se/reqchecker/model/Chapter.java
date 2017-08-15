@@ -34,14 +34,4 @@ public class Chapter {
     public boolean isRequirements() {
         return name.contains("要求") || name.contains("仕様");
     }
-
-    public List<Definition> extractDefinitions() {
-        final List<Definition> result = new ArrayList<>();
-        for (final Requirement req : requirements) {
-            if (!req.getType().isStructural()) {
-                result.addAll(req.getDefinitions());
-            }
-        }
-        return result;
-    }
 }

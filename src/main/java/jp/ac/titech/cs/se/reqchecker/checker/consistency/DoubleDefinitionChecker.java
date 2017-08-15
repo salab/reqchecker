@@ -26,11 +26,21 @@ public class DoubleDefinitionChecker extends AbstractDocumentChecker {
         final List<Definition> definitions = new ArrayList<>();
         for (final Chapter chapter : document.getChapters()) {
             if (chapter.isRequirements()) {
-                definitions.addAll(chapter.extractDefinitions());
+                definitions.addAll(extractDefinitions(chapter));
             }
         }
         check(definitions);
         return !result.isEmpty();
+    }
+
+    public List<Definition> extractDefinitions(final Chapter chapter) {
+        final List<Definition> result = new ArrayList<>();
+        for (final Requirement req : chapter.getRequirements()) {
+            if (!req.getType().isStructural()) {
+                result.addAll(req.getDefinitions());
+            }
+        }
+        return result;
     }
 
     private void check(final List<Definition> definitions) {
