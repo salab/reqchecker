@@ -33,6 +33,7 @@ $ (cd src/main/resources && \
 $ ./gradlew build
 $ cp build/libs/reqchecker.jar ./
 ```
+Pre-built runnable jars are also available at https://github.com/salab/reqchecker/releases
 
 ### Run reqchecker
 ```
