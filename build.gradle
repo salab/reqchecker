@@ -1,23 +1,14 @@
-buildscript {
-    repositories {
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
-    }
-    dependencies {
-        classpath 'io.franzbecker:gradle-lombok:1.8'
-    }
-}
-
-apply plugin: 'java'
-apply plugin: 'io.franzbecker.gradle-lombok'
-
-compileJava {
-    options.encoding = 'UTF-8'
+plugins {
+    id 'java'
 }
 
 repositories {
     jcenter()
+    mavenCentral()
+}
+
+compileJava {
+    options.encoding = 'UTF-8'
 }
 
 dependencies {
@@ -27,7 +18,8 @@ dependencies {
     compile 'org.apache.commons:commons-lang3:3.1'
     compile 'org.slf4j:slf4j-api:1.7.21'
 
-    compileOnly 'org.projectlombok:lombok:1.16.12'
+	compileOnly 'org.projectlombok:lombok:1.18.10'
+	annotationProcessor 'org.projectlombok:lombok:1.18.10'
 
     testCompile 'junit:junit:4.12'
     testCompile 'org.assertj:assertj-core:3.6.2'
@@ -38,21 +30,4 @@ jar {
         attributes 'Main-Class': 'jp.ac.titech.cs.se.reqchecker.Main'
     }
     from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
-}
-
-// delombok
-import io.franzbecker.gradle.lombok.task.DelombokTask
-task delombok(type: DelombokTask, dependsOn: compileJava) {
-    ext.outputDir = file("$buildDir/src-delombok")
-    outputs.dir(outputDir)
-    sourceSets.main.java.srcDirs.each {
-        inputs.dir(it)
-        args(it, "-d", outputDir)
-    }
-}
-
-javadoc {
-    dependsOn delombok
-    source = delombok.outputDir
-    failOnError = false
 }
