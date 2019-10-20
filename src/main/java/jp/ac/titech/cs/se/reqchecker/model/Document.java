@@ -22,7 +22,7 @@ public class Document {
     public Document(final String path, final CabochaParser parser) {
         this.path = path;
         requirements = buildRequirements(parser);
-        log.debug("Loaded: " + path);
+        log.trace("Loaded: " + path);
         chapters = buildChapters(requirements);
     }
 

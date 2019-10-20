@@ -35,11 +35,11 @@ public class DefinitionExtractor {
             if (definingInstance != null) {
                 if (phrase.contains(Word.DE_AUXILIARY) && phrase.contains(Word.ARU)) {
                     final Definition d = new Definition(sentence, definingInstance, phrase);
-                    log.debug("Definition found: {}", d);
+                    log.trace("Definition found: {}", d);
                     definitions.add(d);
                     definingInstance = null;
                 }
-            } else if (phrase.contains(Word.GA) || (phrase.contains(Word.HA) && !phrase.contains(Word.TO_CASE))) {
+            } else if (phrase.contains(Word.GA) || phrase.contains(Word.HA) && !phrase.contains(Word.TO_CASE)) {
                 definingInstance = phrase;
             }
         }
@@ -51,7 +51,7 @@ public class DefinitionExtractor {
             if (definingInstance != null) {
                 if (phrase.contains(Word.WO) && phrase.getForwardPhrase().contains(Word.SASU)) {
                     final Definition d = new Definition(sentence, definingInstance, phrase);
-                    log.debug("Definition found: {}", d);
+                    log.trace("Definition found: {}", d);
                     definitions.add(d);
                     definingInstance = null;
                 }
@@ -67,7 +67,7 @@ public class DefinitionExtractor {
             if (definingInstance != null) {
                 if (phrase.contains(Word.DE_AUXILIARY) && phrase.contains(Word.ARU)) {
                     final Definition d = new Definition(sentence, definingInstance, phrase);
-                    log.debug("Definition found: {}", d);
+                    log.trace("Definition found: {}", d);
                     definitions.add(d);
                     definingInstance = null;
                 }
@@ -92,7 +92,7 @@ public class DefinitionExtractor {
                     log.trace(verb);
                     if (verb.equals("する") || verb.equals("呼ぶ")) {
                         final Definition d = new Definition(sentence, phrase, description);
-                        log.debug("Definition found: {}", d);
+                        log.trace("Definition found: {}", d);
                         definitions.add(d);
                         description = null;
                     }
