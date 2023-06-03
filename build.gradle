@@ -1,9 +1,10 @@
 plugins {
     id 'java'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+    id 'com.github.ben-manes.versions' version '0.46.0'
 }
 
 repositories {
-    jcenter()
     mavenCentral()
 }
 
@@ -12,22 +13,20 @@ compileJava {
 }
 
 dependencies {
-    compile 'ch.qos.logback:logback-classic:1.1.7'
-    compile 'com.google.guava:guava:21.0'
-    compile 'de.sciss:jawjaw:0.1.0'
-    compile 'org.apache.commons:commons-lang3:3.1'
-    compile 'org.slf4j:slf4j-api:1.7.21'
+    implementation 'ch.qos.logback:logback-classic:1.1.7'
+    implementation 'com.google.guava:guava:21.0'
+    implementation 'de.sciss:jawjaw:0.1.0'
+    implementation 'org.apache.commons:commons-lang3:3.1'
+    implementation 'org.slf4j:slf4j-api:1.7.21'
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.assertj:assertj-core:3.6.2'
 
-	compileOnly 'org.projectlombok:lombok:1.18.10'
-	annotationProcessor 'org.projectlombok:lombok:1.18.10'
-
-    testCompile 'junit:junit:4.12'
-    testCompile 'org.assertj:assertj-core:3.6.2'
+	compileOnly 'org.projectlombok:lombok:1.18.26'
+	annotationProcessor 'org.projectlombok:lombok:1.18.26'
 }
 
 jar {
     manifest {
         attributes 'Main-Class': 'jp.ac.titech.cs.se.reqchecker.Main'
     }
-    from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
 }
