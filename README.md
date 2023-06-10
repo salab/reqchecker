@@ -31,7 +31,7 @@ $ (cd src/main/resources && \
    curl -LO https://github.com/bond-lab/wnja/releases/download/v1.1/wnjpn.db.gz && \
    gunzip wnjpn.db.gz)
 $ ./gradlew shadowJar
-$ cp build/libs/reqchecker.jar ./
+$ cp build/libs/reqchecker-all.jar ./reqchecker.jar
 ```
 Pre-built runnable jars are also available at https://github.com/salab/reqchecker/releases
 
@@ -45,8 +45,7 @@ $ open airline.html
 
 If you use this tool in a scientific publication, we would appreciate citations to the following paper:
 
-林 晋平, 有賀 顕, 佐伯 元司: ``reqchecker：IEEE 830の品質特性に基づく日本語要求仕様書の問題点検出ツール'', 電子情報通信学会論文誌, Vol. J101-D, No. 1, pp. 57-67, 2018. https://doi.org/10.14923/transinfj.2017SKP0036
-
+Shinpei Hayashi, Ken Aruga, Motoshi Saeki: ``reqchecker: A Tool for Detecting Problems in Japanese Requirements Specification Documents Based on IEEE 830 Quality Characteristics'' (in Japanese), IEICE Transactions on Information and Systems, Vol. J101-D, No. 1, pp. 57-67, 2018. https://doi.org/10.14923/transinfj.2017SKP0036
 ```
 @article{hayashi-ieicet201801,
     author = {Shinpei Hayashi and Ken Aruga and Motoshi Saeki},
@@ -61,6 +60,7 @@ If you use this tool in a scientific publication, we would appreciate citations 
 ```
 
 (Japanese version)
+林 晋平, 有賀 顕, 佐伯 元司: ``reqchecker：IEEE 830の品質特性に基づく日本語要求仕様書の問題点検出ツール'', 電子情報通信学会論文誌, Vol. J101-D, No. 1, pp. 57-67, 2018. https://doi.org/10.14923/transinfj.2017SKP0036
 ```
 @article{hayashi-ieicet201801,
     author = {林 晋平 and 有賀 顕 and 佐伯 元司},
