@@ -1,7 +1,9 @@
 ~*
-/bin/
-/build/
-/.gradle/
+/bin
+/build
+/.idea
+/.gradle
 /src/main/resources/wnjpn.db
+/src/main/resources/wnjpn.db.gz
 /sample/_*.txt
 /output/_*.html
