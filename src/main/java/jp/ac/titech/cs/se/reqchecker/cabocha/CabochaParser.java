@@ -5,8 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
-
-import com.google.common.io.Files;
+import java.nio.file.Files;
 
 public class CabochaParser {
     private final String cabochaPath;
@@ -58,7 +57,7 @@ public class CabochaParser {
 
     protected File createTemporaryFile(final String sentence) throws IOException {
         final File file = File.createTempFile("reqchecker", ".txt");
-        Files.write(sentence, file, Charset.defaultCharset());
+        Files.write(file.toPath(), sentence.getBytes());
         return file;
     }
 }
