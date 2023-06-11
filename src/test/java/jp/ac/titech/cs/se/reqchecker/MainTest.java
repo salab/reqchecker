@@ -12,7 +12,7 @@ import com.google.common.io.PatternFilenameFilter;
 
 public class MainTest {
 
-    private final static String CABOCHA_URL = "/usr/local/bin/cabocha";
+    private final static String CABOCHA_URL = "cabocha";
 
     private void check(final String filename, final String filenameExpected) {
         final String result = Main.execute(filename, CABOCHA_URL);
