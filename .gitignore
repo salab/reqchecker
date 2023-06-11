@@ -7,3 +7,4 @@
 /src/main/resources/wnjpn.db.gz
 /sample/_*.txt
 /output/_*.html
+.DS_Store
