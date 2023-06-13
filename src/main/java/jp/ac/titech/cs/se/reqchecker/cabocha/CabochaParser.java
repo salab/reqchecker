@@ -1,9 +1,7 @@
 package jp.ac.titech.cs.se.reqchecker.cabocha;
 
-import com.google.common.io.ByteStreams;
-import org.mozilla.universalchardet.UniversalDetector;
-
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 
 public class CabochaParser {
@@ -42,26 +40,19 @@ public class CabochaParser {
         final ProcessBuilder pb = new ProcessBuilder();
         pb.command(cabochaPath, "-f1", "-n1", input.getAbsolutePath());
         final Process proc = pb.start();
-        try (final InputStream in = proc.getInputStream()) {
-            final byte[] bytes = ByteStreams.toByteArray(in);
-            String charset;
-            try (final InputStream bis = new ByteArrayInputStream(bytes)) {
-                charset = UniversalDetector.detectCharset(bis);
+        final StringBuilder sb = new StringBuilder();
+        try (final BufferedReader reader = new BufferedReader(new InputStreamReader(proc.getInputStream(), StandardCharsets.UTF_8))) {
+            String buffer;
+            while (!(buffer = reader.readLine()).equals("EOS")) {
+                sb.append(buffer).append("\n");
             }
-            final StringBuilder sb = new StringBuilder();
-            try (final BufferedReader reader = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(bytes), charset))) {
-                String buffer;
-                while (!(buffer = reader.readLine()).equals("EOS")) {
-                    sb.append(buffer).append("\n");
-                }
-            }
-            return sb.toString();
         }
+        return sb.toString();
     }
 
     protected File createTemporaryFile(final String sentence) throws IOException {
         final File file = File.createTempFile("reqchecker", ".txt");
-        Files.write(file.toPath(), sentence.getBytes());
+        Files.write(file.toPath(), sentence.getBytes(StandardCharsets.UTF_8));
         return file;
     }
 }
