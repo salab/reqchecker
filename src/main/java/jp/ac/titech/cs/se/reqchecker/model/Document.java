@@ -29,7 +29,9 @@ public class Document {
     private List<Requirement> buildRequirements(final CabochaParser parser) {
         final List<Requirement> result = new ArrayList<>();
         for (final String line : Utils.readLines(path)) {
-            result.add(new Requirement(line, parser));
+            if (!line.trim().isEmpty()) {
+                result.add(new Requirement(line, parser));
+            }
         }
         return result;
     }
