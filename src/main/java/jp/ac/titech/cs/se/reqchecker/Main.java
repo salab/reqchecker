@@ -1,9 +1,9 @@
 package jp.ac.titech.cs.se.reqchecker;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.StringWriter;
-import java.io.Writer;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 import jp.ac.titech.cs.se.reqchecker.cabocha.CabochaParser;
 import jp.ac.titech.cs.se.reqchecker.checker.DocumentChecker;
@@ -21,7 +21,7 @@ public class Main {
     }
 
     public static void execute(final String inputPath, final String cabochaPath, final String outputPath) throws IOException {
-        execute(inputPath, cabochaPath, new FileWriter(outputPath));
+        execute(inputPath, cabochaPath, new OutputStreamWriter(Files.newOutputStream(Paths.get(outputPath)), StandardCharsets.UTF_8));
     }
 
     protected static void execute(final String inputPath, final String cabochaPath, final Writer output) {

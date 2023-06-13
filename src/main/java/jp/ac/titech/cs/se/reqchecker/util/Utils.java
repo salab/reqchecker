@@ -17,7 +17,7 @@ public class Utils {
     public static List<String> readLines(final String filename) {
         try {
             final File file = new File(filename);
-            return Files.readAllLines(file.toPath(), Charset.defaultCharset());
+            return Files.readAllLines(file.toPath(), StandardCharsets.UTF_8);
         } catch (final IOException e) {
             e.printStackTrace();
             return null;
