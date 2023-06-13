@@ -64,11 +64,11 @@ public class DoubleDefinitionChecker extends AbstractDocumentChecker {
     @Override
     public void render(final HTMLWriter out) throws IOException {
         for (final Pair<Definition, Definition> p : result) {
-            out.writeln("<B>二重定義</B>の可能性があります。<BR>");
+            out.writeln("<b>二重定義</b>の可能性があります。<br>");
             out.writeln(p.getLeft().toHTML());
             out.writeln(p.getRight().toHTML());
-            out.writeln("<a href=\"quality/consistency.html\"><SPAN class=\"quality\" title=\"語句の定義が矛盾しているか\">無矛盾性b</SPAN></a>に問題がある可能性があります。</SPAN><BR>");
+            out.writeln("<a href=\"quality/consistency.html\"><span class=\"quality\" title=\"語句の定義が矛盾しているか\">無矛盾性b</span></a>に問題がある可能性があります。</span><br>");
         }
-        out.writeln("---<BR>");
+        out.writeln("---<br>");
     }
 }

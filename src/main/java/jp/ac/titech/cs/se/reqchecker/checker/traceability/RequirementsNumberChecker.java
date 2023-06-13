@@ -21,8 +21,8 @@ public class RequirementsNumberChecker implements Checker {
 
     @Override
     public void render(final HTMLWriter out) throws IOException {
-        out.writeln("---<BR>");
-        out.writeln("<SPAN class=\"traceability\">要求文に識別番号がありません。<BR>");
-        out.writeln("<a href=\"quality/traceability.html\"><SPAN class=\"quality\" title=\"各要求にユニークな番号が振られているかどうか\">追跡可能性c</SPAN></a>に問題があります。</SPAN><BR>");
+        out.writeln("---<br>");
+        out.writeln("<span class=\"traceability\">要求文に識別番号がありません。<br>");
+        out.writeln("<a href=\"quality/traceability.html\"><span class=\"quality\" title=\"各要求にユニークな番号が振られているかどうか\">追跡可能性c</span></a>に問題があります。</span><br>");
     }
 }

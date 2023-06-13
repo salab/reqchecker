@@ -47,14 +47,14 @@ public class ReferringRelationDetector extends AbstractChapterChecker {
             final Requirement req = p.getLeft();
             final Word w = p.getRight();
             if (req.getNumber().equals("")) {
-                out.writeln("要求文<B><a> [%s] </a></B>は 要求項目<B><a href=\"#%s.\"> [%s] </a></B>を参照している可能性があります。<BR>", req.getRawSentence(), w, w);
+                out.writeln("要求文<b><a> [%s] </a></b>は 要求項目<b><a href=\"#%s.\"> [%s] </a></b>を参照している可能性があります。<br>", req.getRawSentence(), w, w);
             } else {
-                out.writeln("識別番号<B><a href=\"#%s\"> [%s] </a></B>は 要求項目<B><a href=\"#%s.\"> [%s] </a></B>を参照している可能性があります。<BR>", req.getNumber(), req.getNumber(), w, w);
+                out.writeln("識別番号<b><a href=\"#%s\"> [%s] </a></b>は 要求項目<b><a href=\"#%s.\"> [%s] </a></b>を参照している可能性があります。<br>", req.getNumber(), req.getNumber(), w, w);
             }
         }
 
-        out.writeln("<a href=\"quality/modifiability.html\"><SPAN class=\"quality\" title=\"要求文が互いに依存していないかどうか\">変更可能性c</SPAN></a>に問題がある可能性があります。<BR>");
-        out.writeln("---<BR>");
+        out.writeln("<a href=\"quality/modifiability.html\"><span class=\"quality\" title=\"要求文が互いに依存していないかどうか\">変更可能性c</span></a>に問題がある可能性があります。<br>");
+        out.writeln("---<br>");
     }
 
     private boolean containsNumber(final Set<String> numbers, final String w) {

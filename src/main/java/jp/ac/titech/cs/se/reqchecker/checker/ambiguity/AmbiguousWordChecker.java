@@ -43,20 +43,20 @@ public class AmbiguousWordChecker extends AbstractSentenceChecker {
 
     @Override
     public void render(final HTMLWriter out) throws IOException {
-        out.writeln("<B>あいまいな言葉が</B>含まれています。<BR>");
-        out.writeln("<a href=\"quality/unambiguity.html\"><SPAN class=\"quality\" title=\"判断基準があいまいな語句あるいは範囲や境界を表す語句が含まれているか\">非あいまい性dまたはe</SPAN></a>に問題がある可能性があります。<BR>");
+        out.writeln("<b>あいまいな言葉が</b>含まれています。<br>");
+        out.writeln("<a href=\"quality/unambiguity.html\"><span class=\"quality\" title=\"判断基準があいまいな語句あるいは範囲や境界を表す語句が含まれているか\">非あいまい性dまたはe</span></a>に問題がある可能性があります。<br>");
         final StringBuilder sb = new StringBuilder("-[");
         for (final Phrase phrase : sentence.getPhrases()) {
             for (final Word word : phrase.getWords()) {
                 if (result.contains(word.getNormalized())) {
-                    sb.append("<SPAN class=\"word\">").append(word).append("</SPAN>");
+                    sb.append("<span class=\"word\">").append(word).append("</span>");
                 } else {
                     sb.append(word);
                 }
             }
         }
-        sb.append("]<BR>");
+        sb.append("]<br>");
         out.writeln(sb.toString());
-        out.writeln("---<BR>");
+        out.writeln("---<br>");
     }
 }

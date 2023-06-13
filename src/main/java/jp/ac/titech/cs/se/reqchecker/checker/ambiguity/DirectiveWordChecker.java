@@ -40,20 +40,20 @@ public class DirectiveWordChecker extends AbstractSentenceChecker {
 
     @Override
     public void render(final HTMLWriter out) throws IOException {
-        out.writeln("<B>指示語が</B>含まれています。<BR>");
-        out.writeln("<a href=\"quality/unambiguity.html\"><SPAN class=\"quality\" title=\"指示語が含まれているか\">非あいまい性c</SPAN></a>に問題がある可能性があります。<BR>");
+        out.writeln("<b>指示語が</b>含まれています。<br>");
+        out.writeln("<a href=\"quality/unambiguity.html\"><span class=\"quality\" title=\"指示語が含まれているか\">非あいまい性c</span></a>に問題がある可能性があります。<br>");
         final StringBuilder sb = new StringBuilder("-[");
         for (final Phrase phrase : sentence.getPhrases()) {
             for (final Word word : phrase.getWords()) {
                 if (result.contains(word.getNormalized())) {
-                    sb.append("<SPAN class=\"word\">").append(word).append("</SPAN>");
+                    sb.append("<span class=\"word\">").append(word).append("</span>");
                 } else {
                     sb.append(word);
                 }
             }
         }
-        sb.append("]<BR>");
+        sb.append("]<br>");
         out.writeln(sb.toString());
-        out.writeln("---<BR>");
+        out.writeln("---<br>");
     }
 }

@@ -46,6 +46,6 @@ public class Definition {
     }
 
     public String toHTML() {
-        return "[" + sentence + "]<BR>";
+        return "[" + sentence + "]<br>";
     }
 }

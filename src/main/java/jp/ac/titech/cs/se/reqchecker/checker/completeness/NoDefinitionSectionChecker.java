@@ -31,8 +31,8 @@ public class NoDefinitionSectionChecker extends AbstractDocumentChecker {
 
     @Override
     public void render(final HTMLWriter out) throws IOException {
-        out.writeln("<SPAN class=\"traceability\">要求仕様書に<B>「用語」などの定義の項</B>がありません。<BR>");
-        out.writeln("<a href=\"quality/completeness.html\"><SPAN class=\"quality\" title=\"要求仕様書に用語や単位の定義が記載されている\">完全性c1</SPAN></a>に問題がある可能性があります。</SPAN><BR>");
-        out.writeln("---<BR>");
+        out.writeln("<span class=\"traceability\">要求仕様書に<b>「用語」などの定義の項</b>がありません。<br>");
+        out.writeln("<a href=\"quality/completeness.html\"><span class=\"quality\" title=\"要求仕様書に用語や単位の定義が記載されている\">完全性c1</span></a>に問題がある可能性があります。</span><br>");
+        out.writeln("---<br>");
     }
 }

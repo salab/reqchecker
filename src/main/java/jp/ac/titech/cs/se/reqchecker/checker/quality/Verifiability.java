@@ -13,9 +13,9 @@ public class Verifiability extends CheckerDelegate {
 
     @Override
     public void render(final HTMLWriter out) throws IOException {
-        out.writeln("<B>あいまいな言葉・定性的な表現が</B>含まれています。<BR>");
-        out.writeln("<B><a href=\"quality/unambiguity.html\"><SPAN class=\"quality\" title=\"判断基準があいまいな語句あるいは範囲や境界を表す語句が含まれているか\">非あいまい性dまたはe</SPAN></a>と関連</B>しています。<BR>");
-        out.writeln("<a href=\"quality/verifiability.html\"><SPAN class=\"quality\" title=\"判断基準があいまいな語句あるいは定性的な表現が含まれているか\">検証可能性a</SPAN></a>に問題がある可能性があります。<BR>");
-        out.writeln("---<BR>");
+        out.writeln("<b>あいまいな言葉・定性的な表現が</b>含まれています。<br>");
+        out.writeln("<b><a href=\"quality/unambiguity.html\"><span class=\"quality\" title=\"判断基準があいまいな語句あるいは範囲や境界を表す語句が含まれているか\">非あいまい性dまたはe</span></a>と関連</b>しています。<br>");
+        out.writeln("<a href=\"quality/verifiability.html\"><span class=\"quality\" title=\"判断基準があいまいな語句あるいは定性的な表現が含まれているか\">検証可能性a</span></a>に問題がある可能性があります。<br>");
+        out.writeln("---<br>");
     }
 }

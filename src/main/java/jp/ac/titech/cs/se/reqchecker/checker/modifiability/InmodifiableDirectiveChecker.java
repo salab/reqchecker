@@ -14,10 +14,10 @@ public class InmodifiableDirectiveChecker extends CheckerDelegate {
 
     @Override
     public void render(final HTMLWriter out) throws IOException {
-        out.writeln("<B>要求文に指示語</B>が含まれているため、<B>指示語の参照先に依存</B>しています。<BR>");
-        out.writeln("<B><a href=\"quality/unambiguity.html\"><SPAN class=\"quality\" title=\"指示語が含まれているか\">非あいまい性c</SPAN></a>と関連</B>しています。<BR>");
-        out.writeln("<a href=\"quality/modifiability.html\"><SPAN class=\"quality\" title=\"要求文が互いに依存していないかどうか\">変更可能性c</SPAN></a>に問題がある可能性があります。<BR>");
-        out.writeln("---<BR>");
+        out.writeln("<b>要求文に指示語</b>が含まれているため、<b>指示語の参照先に依存</b>しています。<br>");
+        out.writeln("<b><a href=\"quality/unambiguity.html\"><span class=\"quality\" title=\"指示語が含まれているか\">非あいまい性c</span></a>と関連</b>しています。<br>");
+        out.writeln("<a href=\"quality/modifiability.html\"><span class=\"quality\" title=\"要求文が互いに依存していないかどうか\">変更可能性c</span></a>に問題がある可能性があります。<br>");
+        out.writeln("---<br>");
     }
 
 }

@@ -39,31 +39,31 @@ public class RequirementChecker extends CompoundChecker {
     public void render(final HTMLWriter out) throws IOException {
         if (isInRequirementsSection) {
             if (requirement.getType() != Type.CHAPTER) {
-                out.writeln("---------------------------------------------<BR>");
-                out.writeln("<P>");
+                out.writeln("---------------------------------------------<br>");
+                out.writeln("<p>");
                 if (!requirement.getType().isStructural()) {
                     renderRequirement(out);
                     renderSubCheckers(out, Tag.UNAMBIGUITY, Tag.VERIFIABILITY, Tag.MODIFIABILITY);
                     if (detectedCheckers.isEmpty()) {
-                        out.writeln("<B>問題ない要求文である。</B><BR>");
+                        out.writeln("<b>問題ない要求文である。</b><br>");
                     } else {
-                        out.writeln("<B>修正が必要である可能性があります。</B><BR>");
+                        out.writeln("<b>修正が必要である可能性があります。</b><br>");
                     }
                 } else if (requirement.getType() == Type.SECTION) {
-                    out.writeln("<SPAN class=\"section\">%s ", requirement.getNumber());
-                    out.writeln("[%s]</SPAN><BR>", requirement.getRawSentence());
+                    out.writeln("<span class=\"section\">%s ", requirement.getNumber());
+                    out.writeln("[%s]</span><br>", requirement.getRawSentence());
                 }
-                out.writeln("</P>");
+                out.writeln("</p>");
             }
         } else {
             if (requirement.getType() == Type.OTHER) {
-                out.writeln("[%s]<BR>", requirement.getRawSentence());
+                out.writeln("[%s]<br>", requirement.getRawSentence());
             } else if (requirement.getType() == Type.SECTION) {
-                out.writeln("<BR>");
-                out.writeln("<SPAN class=\"section\">%s ", requirement.getNumber());
-                out.writeln("[%s]</SPAN><BR>", requirement.getRawSentence());
+                out.writeln("<br>");
+                out.writeln("<span class=\"section\">%s ", requirement.getNumber());
+                out.writeln("[%s]</span><br>", requirement.getRawSentence());
             } else if (requirement.getType() == Type.REQ) {
-                out.writeln("<B>");
+                out.writeln("<b>");
                 renderRequirement(out);
             }
         }
@@ -71,13 +71,13 @@ public class RequirementChecker extends CompoundChecker {
 
     private void renderRequirement(final HTMLWriter out) throws IOException {
         if (!contains(Tag.TRACEABILITY)) {
-            out.writeln("識別番号：</B>");
-            out.writeln("<B id=\"%s\">%s</B><BR>", requirement.getNumber(), requirement.getNumber());
+            out.writeln("識別番号：</b>");
+            out.writeln("<b id=\"%s\">%s</b><br>", requirement.getNumber(), requirement.getNumber());
         }
-        out.writeln("<SPAN%s>[%s]</SPAN><BR>", (isInRequirementsSection ? " class=\"requirement\"" : ""), requirement.getRawSentence());
+        out.writeln("<span%s>[%s]</span><br>", (isInRequirementsSection ? " class=\"requirement\"" : ""), requirement.getRawSentence());
         if (isInRequirementsSection) {
             renderSubCheckers(out, Tag.TRACEABILITY);
-            out.writeln("---<BR>");
+            out.writeln("---<br>");
         }
     }
 }

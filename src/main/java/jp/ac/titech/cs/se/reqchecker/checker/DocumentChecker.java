@@ -34,27 +34,26 @@ public class DocumentChecker extends CompoundChecker {
     public void render(final HTMLWriter out) throws IOException {
         renderHeader(out);
 
-        renderSubCheckers(out, "<HR>", Tag.DEFAULT);
-        out.writeln("<HR>");
+        renderSubCheckers(out, "<hr>", Tag.DEFAULT);
+        out.writeln("<hr>");
         renderSubCheckers(out, null, new Tag[] { Tag.TRACEABILITY, Tag.MODIFIABILITY, Tag.CONSISTENCY, Tag.COMPLETENESS });
 
         renderFooter(out);
     }
 
     private void renderHeader(final HTMLWriter out) throws IOException {
-        out.writeln("<HTML>");
-        out.writeln("<HEAD>");
+        out.writeln("<!DOCTYPE html>");
+        out.writeln("<html>");
+        out.writeln("<head>");
+        out.writeln("<meta charset=\"UTF-8\">");
         out.writeln("<link rel=stylesheet type=\"text/css\" href=\"output.css\">");
-        out.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">");
-        out.writeln("<TITLE>");
-        out.writeln("要求仕様書チェッカー");
-        out.writeln("</TITLE>");
-        out.writeln("</HEAD>");
-        out.writeln("<BODY>");
+        out.writeln("<title>reqchecker</title>");
+        out.writeln("</head>");
+        out.writeln("<body>");
     }
 
     private void renderFooter(final HTMLWriter out) throws IOException {
-        out.writeln("</BODY>");
-        out.writeln("</HTML>");
+        out.writeln("</body>");
+        out.writeln("</html>");
     }
 }

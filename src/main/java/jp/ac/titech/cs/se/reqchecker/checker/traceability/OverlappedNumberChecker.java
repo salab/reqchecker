@@ -34,9 +34,9 @@ public class OverlappedNumberChecker extends AbstractDocumentChecker {
     @Override
     public void render(final HTMLWriter out) throws IOException {
         for (final String number : result) {
-            out.writeln("識別番号<B><a href=\"#%s\"> [%s] </a>はかぶっています。</B><BR>", number, number);
+            out.writeln("識別番号<b><a href=\"#%s\"> [%s] </a>はかぶっています。</b><br>", number, number);
         }
-        out.writeln("<a href=\"quality/traceability.html\"><SPAN class=\"quality\" title=\"各要求にユニークな番号が振られているか\">追跡可能性b</SPAN></a>に問題があります。<BR>");
-        out.writeln("---<BR>");
+        out.writeln("<a href=\"quality/traceability.html\"><span class=\"quality\" title=\"各要求にユニークな番号が振られているか\">追跡可能性b</span></a>に問題があります。<br>");
+        out.writeln("---<br>");
     }
 }

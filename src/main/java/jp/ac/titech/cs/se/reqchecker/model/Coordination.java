@@ -19,13 +19,13 @@ public abstract class Coordination {
         for (final Phrase phrase : sentence.getPhrases()) {
             final String className = getClassName(phrase);
             if (className != null) {
-                sb.append(" <SPAN class=\"").append(className).append("\">");
-                sb.append(phrase).append("</SPAN>");
+                sb.append(" <span class=\"").append(className).append("\">");
+                sb.append(phrase).append("</span>");
             } else {
                 sb.append(" ").append(phrase);
             }
         }
-        sb.append(" ]<BR>");
+        sb.append(" ]<br>");
         return sb.toString();
     }
 

@@ -47,13 +47,13 @@ public class SimilarRequirementFinder extends AbstractChapterChecker {
             final Requirement req1 = p.getLeft();
             final Requirement req2 = p.getRight();
             if (!req1.getNumber().equals("") && !req2.getNumber().equals("")) {
-                out.writeln("識別番号<B><a href=\"#%s\"> [%s] </a>と<a href=\"#%s\"> [%s] </a>は類似しています</B><BR>", req1.getNumber(), req1.getNumber(), req2.getNumber(), req2.getNumber());
+                out.writeln("識別番号<b><a href=\"#%s\"> [%s] </a>と<a href=\"#%s\"> [%s] </a>は類似しています</b><br>", req1.getNumber(), req1.getNumber(), req2.getNumber(), req2.getNumber());
             }
-            out.writeln("[%s]<BR>", req1.getRawSentence());
-            out.writeln("[%s]<BR>", req2.getRawSentence());
-            out.writeln("<a href=\"quality/modifiability.html\"><SPAN class=\"quality\" title=\"同じ要求が2箇所以上に表れているか\">変更可能性b</SPAN></a>に問題がある可能性があります。</SPAN><BR>");
+            out.writeln("[%s]<br>", req1.getRawSentence());
+            out.writeln("[%s]<br>", req2.getRawSentence());
+            out.writeln("<a href=\"quality/modifiability.html\"><span class=\"quality\" title=\"同じ要求が2箇所以上に表れているか\">変更可能性b</span></a>に問題がある可能性があります。</span><br>");
         }
-        out.writeln("---<BR>");
+        out.writeln("---<br>");
     }
 
     /**

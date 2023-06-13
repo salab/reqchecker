@@ -28,13 +28,13 @@ public class ChapterChecker extends CompoundChecker {
 
     @Override
     public void render(final HTMLWriter out) throws IOException {
-        out.writeln("<DIV>");
+        out.writeln("<div>");
         if (contains(Tag.TRACEABILITY)) {
             renderSubCheckers(out, Tag.TRACEABILITY);
         } else {
-            out.writeln("<H3 id=\"%s\">%s %s</H3>", chapter.getNumber(), chapter.getNumber(), chapter.getName());
+            out.writeln("<h3 id=\"%s\">%s %s</h3>", chapter.getNumber(), chapter.getNumber(), chapter.getName());
         }
         renderSubCheckers(out, Tag.DEFAULT);
-        out.writeln("</DIV>");
+        out.writeln("</div>");
     }
 }

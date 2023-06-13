@@ -32,18 +32,18 @@ public class NoObjectChecker extends AbstractSentenceChecker {
 
     @Override
     public void render(final HTMLWriter out) throws IOException {
-        out.writeln("<B>目的語が省略</B>されている可能性があります。<BR>");
-        out.writeln("<a href=\"quality/unambiguity.html\"><SPAN class=\"quality\" title=\"主語や目的語が省略されているか\">非あいまい性b</SPAN></a>に問題がある可能性があります。<BR>");
+        out.writeln("<b>目的語が省略</b>されている可能性があります。<br>");
+        out.writeln("<a href=\"quality/unambiguity.html\"><span class=\"quality\" title=\"主語や目的語が省略されているか\">非あいまい性b</span></a>に問題がある可能性があります。<br>");
         final StringBuilder sb = new StringBuilder("-[");
         for (final Phrase phrase : sentence.getPhrases()) {
             if (result.contains(phrase)) {
-                sb.append(" <SPAN class=\"parallel\">").append(phrase).append("</SPAN>");
+                sb.append(" <span class=\"parallel\">").append(phrase).append("</span>");
             } else {
                 sb.append(" ").append(phrase);
             }
         }
-        sb.append(" ]<BR>");
+        sb.append(" ]<br>");
         out.writeln(sb.toString());
-        out.writeln("---<BR>");
+        out.writeln("---<br>");
     }
 }

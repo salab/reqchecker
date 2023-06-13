@@ -25,8 +25,8 @@ public class ReferenceSectionDetector extends AbstractDocumentChecker {
 
     @Override
     public void render(final HTMLWriter out) throws IOException {
-        out.writeln("<SPAN class=\"traceability\">要求仕様書に<B>「索引」の章</B>がありません。<BR>");
-        out.writeln("<a href=\"quality/modifiability.html\"><SPAN class=\"quality\" title=\"要求仕様書に索引が付けられているか\">変更可能性a</SPAN></a>に問題があります。</SPAN><BR>");
-        out.writeln("---<BR>");
+        out.writeln("<span class=\"traceability\">要求仕様書に<b>「索引」の章</b>がありません。<br>");
+        out.writeln("<a href=\"quality/modifiability.html\"><span class=\"quality\" title=\"要求仕様書に索引が付けられているか\">変更可能性a</span></a>に問題があります。</span><br>");
+        out.writeln("---<br>");
     }
 }

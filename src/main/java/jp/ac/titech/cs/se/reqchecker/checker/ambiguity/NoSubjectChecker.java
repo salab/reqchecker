@@ -39,9 +39,9 @@ public class NoSubjectChecker extends AbstractSentenceChecker {
 
     @Override
     public void render(final HTMLWriter out) throws IOException {
-        out.writeln("<B>主語が省略</B>されている可能性があります。<BR>");
-        out.writeln("<a href=\"quality/unambiguity.html\"><SPAN class=\"quality\" title=\"主語や目的語が省略されているか\">非あいまい性b</SPAN></a>に問題がある可能性があります。<BR>");
-        out.writeln("-<SPAN class=\"reqSmall\">[%s ]</SPAN><BR>", sentence.getRaw());
-        out.writeln("---<BR>");
+        out.writeln("<b>主語が省略</b>されている可能性があります。<br>");
+        out.writeln("<a href=\"quality/unambiguity.html\"><span class=\"quality\" title=\"主語や目的語が省略されているか\">非あいまい性b</span></a>に問題がある可能性があります。<br>");
+        out.writeln("-<span class=\"reqSmall\">[%s ]</span><br>", sentence.getRaw());
+        out.writeln("---<br>");
     }
 }

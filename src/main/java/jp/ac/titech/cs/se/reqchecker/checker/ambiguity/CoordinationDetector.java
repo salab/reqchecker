@@ -34,12 +34,12 @@ public class CoordinationDetector extends AbstractSentenceChecker {
 
     @Override
     public void render(final HTMLWriter out) throws IOException {
-        out.writeln("<B>係り受け関係が複数</B>考えられる可能性があります。<BR>");
-        out.writeln("<a href=\"quality/unambiguity.html\"><SPAN class=\"quality\" title=\"語句の係り受け関係が複数存在するか\">非あいまい性a</SPAN></a>に問題がある可能性があります。<BR>");
+        out.writeln("<b>係り受け関係が複数</b>考えられる可能性があります。<br>");
+        out.writeln("<a href=\"quality/unambiguity.html\"><span class=\"quality\" title=\"語句の係り受け関係が複数存在するか\">非あいまい性a</span></a>に問題がある可能性があります。<br>");
         for (final Coordination c : result) {
             out.writeln(c.toHTML());
         }
-        out.writeln("---<BR>");
+        out.writeln("---<br>");
     }
 
     protected void check_AoyobiBtenC(final Phrase phrase) {
