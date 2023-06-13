@@ -46,7 +46,17 @@ public class DocumentChecker extends CompoundChecker {
         out.writeln("<html>");
         out.writeln("<head>");
         out.writeln("<meta charset=\"UTF-8\">");
-        out.writeln("<link rel=stylesheet type=\"text/css\" href=\"output.css\">");
+        // out.writeln("<link rel=stylesheet type=\"text/css\" href=\"output.css\">");
+        out.writeln("<style>");
+        out.writeln(".quality { color:#ff0000; background-color:#99ffff; font: bold 100% sans-serif; }");
+        out.writeln(".section { font: bold 100% sans-serif; }");
+        out.writeln(".modifier { background-color:#00ffff; }");
+        out.writeln(".parallel { font: bold 100% sans-serif; background-color:#ff99ff; }");
+        out.writeln(".lastParallel { font: bold 100% sans-serif; background-color:#ff6633; }");
+        out.writeln(".word { font: bold 100% sans-serif; background-color:#99ff99; }");
+        out.writeln(".requirement { font: bold 110% sans-serif; background-color:#A3D070; }");
+        out.writeln(".reqSmall { font: bold 100% sans-serif; background-color:#D1FC9F; }");
+        out.writeln("</style>");
         out.writeln("<title>reqchecker</title>");
         out.writeln("</head>");
         out.writeln("<body>");
