@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: Hayashi
+  given-names: Shinpei
+- family-names: Aruga
+  given-names: Ken
+- family-names: Saeki
+  given-names: Motoshi
+title: "reqchecker: A Tool for Detecting Problems in Japanese Requirements Specification Documents Based on IEEE 830 Quality Characteristics"
+version: 0.4.0
+date-released: 2023-06-13
+url: https://github.com/salab/reqchecker
+preferred-citation:
+  type: article
+  authors:
+  - family-names: Hayashi
+    given-names: Shinpei
+  - family-names: Aruga
+    given-names: Ken
+  - family-names: Saeki
+    given-names: Motoshi
+  doi: 10.14923/transinfj.2017SKP0036
+  journal: IEICE Transactions on Information and Systems
+  month: 9
+  title: "reqchecker: A Tool for Detecting Problems in Japanese Requirements Specification Documents Based on IEEE 830 Quality Characteristics"
+  volume: J101-D
+  issue: 1
+  start: 57
+  end: 67
+  year: 2018
